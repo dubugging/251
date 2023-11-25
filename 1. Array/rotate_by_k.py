@@ -1,14 +1,31 @@
-def rotate_by_k(numbers, k):
-    k %= len(numbers)
-    others = numbers[k:]
+def better(numbers, k):
+    n = len(numbers)
+    k %= n
+    slice = numbers[n-k:]
 
-    for i in range(k):
-        numbers[-1-i] = numbers[k-i-1]
+    for i in range(n-k-1, -1, -1):
+        numbers[i+k] = numbers[i]
 
-    for i in range(len(others)):
-        numbers[i] = others[i]
+    for i in range(len(slice)):
+        numbers[i] = slice[i]
 
     return numbers
 
 
-print(rotate_by_k(numbers=[1,2,3,4,5,6,7,8,9], k=4))
+def my_reverse(numbers, start, end):
+    while start < end:
+        numbers[start], numbers[end] = numbers[end], numbers[start]
+        start += 1
+        end -= 1
+    return numbers
+
+
+def optimal(numbers, k):
+    n = len(numbers)
+    k %= n
+    numbers = my_reverse(numbers=numbers, start=0, end=n-k-1)
+    numbers = my_reverse(numbers=numbers, start=n-k, end=n-1)
+    return numbers[::-1]
+
+
+print(optimal(numbers=[1, 2, 3, 4, 5, 6, 7], k=3))

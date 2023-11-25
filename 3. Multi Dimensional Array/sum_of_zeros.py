@@ -23,7 +23,8 @@ def count_up(i, j, mat):
 
 
 def count_all(i, j, mat):
-    return count_left(i, j, mat) + count_down(i, j, mat) + count_right(i, j, mat) + count_up(i, j, mat)
+    return count_left(i, j, mat) + count_down(i, j, mat) + \
+    	count_right(i, j, mat) + count_up(i, j, mat)
 
 
 def coverageOfMatrix(mat):
@@ -38,4 +39,4 @@ def coverageOfMatrix(mat):
     return count
 
 
-print(coverageOfMatrix(mat=[[1,0,0], [0,0,1]]))
+print(coverageOfMatrix(mat=[[0, 0, 1], [0, 1, 0], [0,1,1]]))
