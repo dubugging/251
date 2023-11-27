@@ -7,10 +7,7 @@ def maxArea(height):
         area = max(area, min(height[start], height[end])*(end-start))
         if height[start] < height[end]:
             start += 1
-        elif height[start] > height[end]:
-            end -= 1
         else:
-            start += 1
             end -= 1
     return area
 
