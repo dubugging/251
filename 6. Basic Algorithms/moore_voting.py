@@ -1,5 +1,4 @@
 def findMajorityElement(arr, n):
-    arr.sort()
     count = 1
     item = arr[0]
     for i in range(1, n):
@@ -13,4 +12,4 @@ def findMajorityElement(arr, n):
     return item if arr.count(item) > n//2 else -1
 
 
-print(findMajorityElement(arr=[5, 2, 2, 0], n=4))
+print(findMajorityElement(arr=[5, 2, 2, 0, 2], n=5))

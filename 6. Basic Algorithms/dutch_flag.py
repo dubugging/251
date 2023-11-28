@@ -14,4 +14,4 @@ def sort012(arr, n):
     return arr
 
 
-print(sort012(arr=[0, 1, 2, 2, 1, 0], n=6))
+print(sort012(arr=[1, 2, 0, 1, 2], n=5))
