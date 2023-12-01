@@ -6,7 +6,7 @@ def maxSubarraySum(arr):
         if total < 0:
             total = 0
         ans = max(ans, total)
-    return ans
+    return max(arr) if max(arr) < 0 else ans
 
 
-print(maxSubarraySum(arr=[-30]))
+print(maxSubarraySum(arr=[-30, -20, -10]))
