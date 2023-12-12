@@ -1,10 +1,10 @@
 def better(numbers, k):
     n = len(numbers)
     k %= n
-    slice = numbers[n-k:]
+    slice = numbers[n - k:]
 
-    for i in range(n-k-1, -1, -1):
-        numbers[i+k] = numbers[i]
+    for i in range(n - k - 1, -1, -1):
+        numbers[i + k] = numbers[i]
 
     for i in range(len(slice)):
         numbers[i] = slice[i]
@@ -23,8 +23,8 @@ def my_reverse(numbers, start, end):
 def optimal(numbers, k):
     n = len(numbers)
     k %= n
-    numbers = my_reverse(numbers=numbers, start=0, end=n-k-1)
-    numbers = my_reverse(numbers=numbers, start=n-k, end=n-1)
+    numbers = my_reverse(numbers=numbers, start=0, end=n - k - 1)
+    numbers = my_reverse(numbers=numbers, start=n - k, end=n - 1)
     return numbers[::-1]
 
 
