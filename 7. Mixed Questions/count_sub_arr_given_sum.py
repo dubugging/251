@@ -15,14 +15,16 @@ def brute(arr, s):
 
 
 def better(arr, s):
-    pre_sum, count = 0, 0
-    mapp = defaultdict(int)
-    mapp[0] = 1
+    total = 0
+    count = 0
+    mapp = {total: 1}
+
     for num in arr:
-        pre_sum += num
-        remove = pre_sum - s
-        count += mapp[remove]
-        mapp[pre_sum] += 1
+        total += num
+        if total-s in mapp:
+            count += mapp[total-s]
+            mapp[total-s] += 1
+        mapp[total] = 1
     return count
 
 

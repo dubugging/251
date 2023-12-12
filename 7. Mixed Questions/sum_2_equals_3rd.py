@@ -1,5 +1,4 @@
 def findTriplet(arr, n):
-    count = 0
     arr.sort()
 
     for i in range(n-1, -1, -1):
@@ -7,14 +6,14 @@ def findTriplet(arr, n):
         k = i-1
 
         while j < k:
-            if arr[i] == arr[j] + arr[k]:
-                count += 1
-                break
-            elif arr[i] < arr[j] + arr[k]:
+            duo_sum = arr[j] + arr[k]
+            if arr[i] == duo_sum:
+                return [arr[j], arr[k], arr[i]]
+            elif arr[i] < duo_sum:
                 k -= 1
             else:
-                j -= 1
-    return count
+                j += 1
+    return []
 
 
-print(findTriplet(arr=[1, 0, 1], n=3))
+print(findTriplet(arr=[1, 0, 1, 2], n=4))

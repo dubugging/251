@@ -2,6 +2,7 @@ def missingAndRepeating(arr, n):
     mapp = {}
     missing = 0
     repeating = 0
+
     for key in arr:
         if key not in mapp:
             mapp[key] = 1

@@ -5,10 +5,9 @@ def pushZerosAtEnd(arr):
         if arr[i] == 0:
             if i > zero_index:
                 continue
-            else:
-                zero_index = i
+            zero_index = i
         else:
-            if zero_index < i:
+            if i > zero_index:
                 arr[zero_index], arr[i] = arr[i], arr[zero_index]
             zero_index += 1
     return arr

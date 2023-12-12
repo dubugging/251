@@ -4,10 +4,9 @@ def brute(arr, n, target) -> [[int]]:
         for j in range(i+1, n):
             for k in range(j+1, n):
                 if arr[i] + arr[j] + arr[k] == target:
-                    temp = [arr[i], arr[j], arr[k]]
-                    temp.sort()
+                    temp = sorted([arr[i], arr[j], arr[k]])
                     ans.add(tuple(temp))
-    return list(ans)
+    return [list(item) for item in ans]
 
 
 def better(arr, n, target) -> [[int]]:
@@ -18,9 +17,8 @@ def better(arr, n, target) -> [[int]]:
             find = target - (arr[i]+arr[j])
             if find not in st:
                 st.add(arr[j])
-            elif find in st:
-                temp = [arr[i], arr[j], find]
-                temp.sort()
+            else:
+                temp = sorted([arr[i], arr[j], find])
                 ans.add(tuple(temp))
     return [list(item) for item in ans]
 
@@ -42,11 +40,11 @@ def optimal(arr, n, target) -> [[int]]:
                     j += 1
                 while j < k and arr[k] == arr[k+1]:
                     k -= 1
-            elif total < k:
+            elif total < target:
                 j += 1
             else:
                 k -= 1
     return ans
 
 
-print(optimal(n=5, arr=[-1, -1, 2, 0, 1], target=2))
+print(better(n=5, arr=[-1, -1, 2, 0, 1], target=2))

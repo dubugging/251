@@ -1,16 +1,15 @@
-def find(arr, n, item):
-    for i in range(n):
-        if arr[i] == item:
+def find(arr, item):
+    for num in arr:
+        if num == item:
             return True
     return False
 
 
 def brute(arr, n):
     ans = 0
-    for i in range(n):
-        item = arr[i]
+    for item in arr:
         count = 1
-        while find(arr, n, item+1):
+        while find(arr, item+1):
             count += 1
             item += 1
         ans = max(ans, count)
@@ -20,7 +19,7 @@ def brute(arr, n):
 def better(arr, n):
     arr.sort()
     count = 1
-    ans = 1
+    ans = 0
     for i in range(n-1):
         if arr[i+1] - arr[i] == 1:
             count += 1
