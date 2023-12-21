@@ -22,4 +22,4 @@ def aggressiveCows(stalls, k):
     return high
 
 
-print(aggressiveCows(stalls=[0, 3, 4, 7, 9, 10], k=4))
+print(aggressiveCows(stalls=[0, 3, 4, 7, 10, 9], k=4))

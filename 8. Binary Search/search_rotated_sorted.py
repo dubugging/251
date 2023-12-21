@@ -19,4 +19,4 @@ def search(arr, target):
     return -1
 
 
-print(search(arr=[5, 6, 7, 1, 2, 3, 4, 5], target=2))
+print(search(arr=[5, 6, 7, 1, 2, 3, 4], target=2))
