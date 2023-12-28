@@ -16,13 +16,13 @@ def merge(left, right):
     return ans
 
 
-def mergeSort(arr):
+def divide(arr):
     if len(arr) == 1:
         return arr
-    mid = len(arr)//2
+    mid = len(arr) // 2
     left = arr[:mid]
     right = arr[mid:]
-    return merge(mergeSort(left), mergeSort(right))
+    return merge(divide(left), divide(right))
 
 
-print(mergeSort(arr=[7, 8, 3, 2, 1]))
+print(divide(arr=[7, 8, 3, 2, 1]))

@@ -1,6 +1,5 @@
 def partition(arr, pivot_index, end_index):
     boundary = pivot_index
-
     for i in range(pivot_index+1, end_index+1):
         if arr[i] < arr[pivot_index]:
             boundary += 1
@@ -9,12 +8,12 @@ def partition(arr, pivot_index, end_index):
     return boundary
 
 
-def quickSort(arr, start, end):
-    if start < end:
-        boundary = partition(arr, pivot_index=start, end_index=end)
-        quickSort(arr, start=start, end=boundary-1)
-        quickSort(arr, start=boundary+1, end=end)
-    return arr
+def quick_sort(arr, pivot_index, end_index):
+    if pivot_index < end_index:
+        boundary = partition(arr, pivot_index, end_index)
+        quick_sort(arr, pivot_index=pivot_index, end_index=boundary - 1)
+        quick_sort(arr, pivot_index=boundary + 1, end_index=end_index)
+        return arr
 
 
-print(quickSort([15, 6, 3, 1, 22, 10, 13], start=0, end=6))
+print(quick_sort(arr=[77, 5, 89, 2, 85], pivot_index=0, end_index=4))
