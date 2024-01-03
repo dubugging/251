@@ -1,0 +1,2 @@
+def pairsSwap(head):
+    pass
