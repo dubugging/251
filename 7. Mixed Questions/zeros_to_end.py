@@ -14,3 +14,4 @@ def pushZerosAtEnd(arr):
 
 
 print(pushZerosAtEnd(arr=[2, 0, 4, 1, 3, 0, 28]))
+print(pushZerosAtEnd(arr=[0, 0, 4, 1, 3, 0, 28]))
