@@ -1,25 +1,40 @@
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
+
 class Stack:
-    # Write your code here
     def __init__(self):
-        # Write your code here
-        pass
+        self.head = None
+        self.tail = None
+        self.size = 0
 
     def getSize(self):
-        # Write your code here
-        pass
+        return self.size
 
     def isEmpty(self):
-        # Write your code here
-        pass
+        return self.size == 0
 
     def push(self, data):
-        # Write your code here
-        pass
+        node = Node(data)
+        if not self.head:
+            self.head = node
+            self.tail = node
+        else:
+            self.tail.next = node
+            self.tail = node
+        self.size += 1
 
     def pop(self):
-        # Write your code here
-        pass
+        if self.size:
+            curr = self.head
+            self.size -= 1
+            while curr.next:
+                previous = curr
+                curr = curr.next
+            previous.next = None
+            self.tail = previous
 
     def getTop(self):
-        # Write your code here
-        pass
+        return self.tail.value
