@@ -1,29 +1,28 @@
 def segregateOddEven(head):
-    es, ee = None, None
-    os, oe = None, None
+    oddStart, oddEnd = None, None
+    evenStart, evenEnd = None, None
     curr = head
+
     while curr:
-        data = curr.data
-        if data % 2:
-            if not os:
-                os = curr
-                oe = curr
+        if curr.data % 2:
+            if not oddStart:
+                oddStart = curr
+                oddEnd = curr
             else:
-                oe.next = curr
-                oe = oe.next
+                oddEnd.next = curr
+                oddEnd = oddEnd.next
         else:
-            if not es:
-                es = curr
-                ee = curr
+            if not evenStart:
+                evenStart = curr
+                evenEnd = curr
             else:
-                ee.next = curr
-                ee = ee.next
+                evenEnd.next = curr
+                evenEnd = evenEnd.next
         curr = curr.next
 
-    if not os:
-        return es
-    elif not es:
-        return os
-    else:
-        oe.next = es
-        return os
+    if oddStart and evenStart:
+        oddEnd.next = evenStart
+        evenEnd.next = None
+        head = oddStart
+
+    return head
