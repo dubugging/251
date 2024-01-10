@@ -1,24 +1,26 @@
 class Stack:
     def __init__(self):
-        # Define the data members.
-        pass
+        self.que1 = []
+        self.que2 = []
 
     def getSize(self) -> int:
-        # Implement the getSize() function.
-        pass
+        return len(self.que1)
 
     def isEmpty(self) -> bool:
-        # Implement the isEmpty() function.
-        pass
+        return len(self.que1) == 0
 
     def push(self, element: int) -> None:
-        # Implement the push() function.
-        pass
+        if not self.que1:
+            self.que1.append(element)
+        else:
+            self.que2 = self.que1[:]
+            self.que1.clear()
+            self.que1.append(element)
+            self.que1 += self.que2[:]
+            self.que2.clear()
 
     def pop(self) -> int:
-        # Implement the pop() function.
-        pass
+        return self.que1.pop(0) if self.que1 else -1
 
     def top(self) -> int:
-        # Implement the top() function.
-        pass
+        return self.que1[-1] if self.que1 else -1

@@ -6,8 +6,8 @@ class Queue:
 
     # Enqueues 'X' into the queue. Returns true after enqueuing.
     def enqueue(self, X):
-        # Write your code here
-        pass
+        self.stk1.append(X)
+        return True
 
     """
       Dequeues top element from queue. Returns -1 if the queue is empty, 
@@ -15,5 +15,8 @@ class Queue:
     """
 
     def dequeue(self):
-        # Write your code here
-        pass
+        if self.stk2:
+            return self.stk2.pop()
+        while self.stk1:
+            self.stk2.append(self.stk1.pop())
+        return -1 if not self.stk2 else self.stk2.pop()
