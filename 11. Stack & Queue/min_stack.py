@@ -1,23 +1,26 @@
-class minStack:
+class MinStack:
     def __init__(self):
         self.stack = []
+        self.min_stack = []
 
-    # Function to add another element equal to num at the top of stack.
-    def push(self, num: int) -> None:
-        self.stack.append(num)
+    def push(self, val: int) -> None:
+        self.stack.append(val)
+        if not self.min_stack or self.min_stack[-1] >= val:
+            self.min_stack.append(val)
 
-    # Function to remove the top element of the stack.
-    def pop(self) -> int:
-        return self.stack.pop() if self.stack else -1
+    def pop(self) -> None:
+        if not self.stack:
+            return -1
+        if self.min_stack[-1] == self.stack[-1]:
+            self.min_stack.pop()
+            self.stack.pop()
+        else:
+            return self.stack.pop()
 
-    # Function to return the top element of stack if it is present. Otherwise return -1.
     def top(self) -> int:
         return self.stack[-1] if self.stack else -1
 
-    # Function to return minimum element of stack if it is present. Otherwise return -1.
     def getMin(self) -> int:
-        mini = -1
-        for i in range(len(self.stack)):
-            if self.stack[i] < mini:
-                mini = self.stack[i]
-        return mini
+        if not self.min_stack:
+            return -1
+        return self.min_stack[-1]
