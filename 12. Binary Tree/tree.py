@@ -40,10 +40,76 @@ class BST:
                 curr = curr.right
         return False
 
+    def pre_order(self):
+        result = []
+
+        def traverse(current):
+            result.append(current.value)
+            if current.left:
+                traverse(current.left)
+            if current.right:
+                traverse(current.right)
+
+        traverse(self.root)
+        return result
+
+    def in_order(self):
+        result = []
+
+        def traverse(current):
+            if current.left:
+                traverse(current.left)
+            result.append(current.value)
+            if current.right:
+                traverse(current.right)
+
+        traverse(self.root)
+        return result
+
+    def post_order(self):
+        result = []
+
+        def traverse(current):
+            if current.left:
+                traverse(current.left)
+            if current.right:
+                traverse(current.right)
+            result.append(current.value)
+
+        traverse(self.root)
+        return result
+
+    def height(self):
+        def traverse(current):
+            if not current:
+                return -1
+            if not current.left and not current.right:
+                return 0
+            return 1 + max(traverse(current.left), traverse(current.right))
+
+        return traverse(self.root)
+
+    def minimum(self):
+        def traverse(current):
+            if not current:
+                return 1
+            if not current.left and not current.right:
+                return current.value
+            return min(traverse(current.left), traverse(current.right), current.value)
+
+        return traverse(self.root)
+
 
 tree = BST()
+tree.insert(1)
 tree.insert(2)
 tree.insert(3)
-tree.insert(1)
+tree.insert(4)
+tree.insert(5)
+tree.insert(6)
 
-print(tree.contains(1))
+print(tree.pre_order())
+print(tree.in_order())
+print(tree.post_order())
+print(tree.height())
+print(tree.minimum())
