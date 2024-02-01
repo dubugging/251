@@ -2,6 +2,7 @@ def pre_order(self):
     result = []
 
     def traverse(current):
+        # root, left, right
         result.append(current.value)
         if current.left:
             traverse(current.left)

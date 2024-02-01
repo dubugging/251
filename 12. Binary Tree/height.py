@@ -1,9 +1,6 @@
-def height(self):
-    def traverse(current):
-        if not current:
-            return -1
-        if not current.left and not current.right:
-            return 0
-        return 1 + max(traverse(current.left), traverse(current.right))
-
-    return traverse(self.root)
+def height(root):
+    if not root:
+        return -1
+    if not root.left and not root.right:
+        return 0
+    return 1 + max(height(root.left), height(root.right))

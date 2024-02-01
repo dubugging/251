@@ -1,9 +1,6 @@
-def minimum(self):
-    def traverse(current):
-        if not current:
-            return float('inf')
-        if not current.left and not current.right:
-            return current.value
-        return min(traverse(current.left), traverse(current.right), current.value)
-
-    return traverse(self.root)
+def minimum(root):
+    if not root:
+        return float('inf')
+    if not root.left and not root.right:
+        return root.value
+    return min(minimum(root.left), minimum(root.right), root.value)

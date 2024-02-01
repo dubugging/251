@@ -5,19 +5,16 @@ class TreeNode:
         self.right = None
 
 
-def diameterOfBinaryTree(root: TreeNode) -> int:
+def height(root, ans):
     if not root:
         return 0
-
-    left_diameter = diameterOfBinaryTree(root.left)
-    right_diameter = diameterOfBinaryTree(root.right)
-
-    current = height(root.left) + height(root.right)
-
-    return max(current, max(left_diameter, right_diameter))
+    lh = height(root.left, ans)
+    rh = height(root.right, ans)
+    ans[0] = max(ans[0], lh+rh)
+    return 1 + max(lh, rh)
 
 
-def height(current):
-    if not current:
-        return 0
-    return 1 + max(height(current.left), height(current.right))
+def diameterOfBinaryTree(root: TreeNode) -> int:
+    ans = [0]
+    height(root, ans)
+    return ans[0]

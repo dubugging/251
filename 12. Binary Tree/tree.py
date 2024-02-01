@@ -42,15 +42,10 @@ class BST:
 
 
 tree = BST()
+tree.insert(7)
+tree.insert(4)
+tree.insert(9)
 tree.insert(1)
-tree.insert(2)
-tree.insert(3)
-tree.insert(42)
-tree.insert(5)
 tree.insert(6)
-
-print(tree.pre_order())
-print(tree.in_order())
-print(tree.post_order())
-print(tree.height())
-print(tree.minimum())
+tree.insert(8)
+tree.insert(10)
