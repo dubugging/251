@@ -4,7 +4,8 @@ def in_order(self):
     def traverse(current):
         if current.left:
             traverse(current.left)
-        result.append(current.value)
+        if current:
+            result.append(current.value)
         if current.right:
             traverse(current.right)
 
