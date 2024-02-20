@@ -4,7 +4,7 @@ def left_traverse(root, ans):
     ans.append(root.value)
     if root.left:
         left_traverse(root=root.left, ans=ans)
-    if root.right:
+    else:
         left_traverse(root=root.right, ans=ans)
 
 
@@ -23,7 +23,7 @@ def right_traverse(root, ans):
         return
     if root.right:
         right_traverse(root=root.right, ans=ans)
-    if root.left:
+    else:
         right_traverse(root=root.left, ans=ans)
     ans.append(root.value)
 
