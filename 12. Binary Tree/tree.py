@@ -1,3 +1,6 @@
+from boundary_traversal import traverseBoundary
+
+
 class Node:
     def __init__(self, value):
         self.value = value
@@ -49,3 +52,6 @@ tree.insert(1)
 tree.insert(6)
 tree.insert(8)
 tree.insert(10)
+
+
+print(traverseBoundary(tree.root))
