@@ -1,4 +1,5 @@
 from boundary_traversal import traverseBoundary
+from top_view import top_view
 
 
 class Node:
@@ -54,4 +55,4 @@ tree.insert(8)
 tree.insert(10)
 
 
-print(traverseBoundary(tree.root))
+print(top_view(tree.root))
