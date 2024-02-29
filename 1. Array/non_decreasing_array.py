@@ -14,4 +14,4 @@ def non_decreasing_array(numbers):
     return True
 
 
-print(non_decreasing_array(numbers=[1,2,3]))
+print(non_decreasing_array(numbers=[1, 2, 3]))

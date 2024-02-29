@@ -4,7 +4,6 @@ from collections import deque
 def top_view(root):
     mapp = {}
     q = deque([(root, 0)] if root else [])
-    ans = []
 
     while q:
         node = q.popleft()
@@ -22,7 +21,6 @@ def top_view(root):
 
     if mapp:
         mapp = sorted(mapp.items(), key=lambda kv: kv[0])
-        for item in mapp:
-            ans.append(item[1])
+        return [item[1] for item in mapp]
 
-    return ans
+    return []
